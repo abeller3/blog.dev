@@ -10,7 +10,9 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+Route::get('/', function() {
+	return 'We are home!';
+});
 Route::get('/resume', function() {
 	return 'This is my resume';
 });
