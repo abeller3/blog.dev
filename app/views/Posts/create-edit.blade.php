@@ -14,18 +14,16 @@
             {{ $errors->first('title', '<span class="help-block">:message</span><br>') }}
         </div>
         <div>
-            <div>
             {{ Form::label('image', 'Image') }}
             {{ Form::file('image') }}
             {{ $errors->first('image', '<span class="help-block">:message</span><br>') }} 
-        </div>
         <div>
             {{ Form::label('body', 'Body') }}
             {{ Form::textarea('body') }}
             {{ $errors->first('body', '<span class="help-block">:message</span><br>') }}
         </div>
-        {{ Form::submit('Save Post') }}
-    {{ Form::close() }}
+            {{ Form::submit('Save Post') }}
+            {{ Form::close() }}
 
 @stop
 

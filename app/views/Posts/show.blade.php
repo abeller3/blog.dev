@@ -6,13 +6,9 @@
 	<h3>Updated At: </h3>
 	<p>{{ link_to_action('PostsController@show', $post->updated_at->format('l, F jS Y @ h:i:s A'), array($post->id)) }}</p>
 	<h3>Post Content</h3>
-
 	@if($post->img_path)
-	<img src="{{{ $post->img_path }}}" class="img-responsive">
+	<p><img src="{{{ $post->img_path }}}" class="img-responsive"></p>
 	@endif
-
-	{{ $post->renderBody() }}<br>
-
 	@if (Auth::check())
 	<a href="{{action('PostsController@edit', $post->id)}}" class="btn btn-info btn-sm" role="button">Edit</a>
 	{{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE')) }}
