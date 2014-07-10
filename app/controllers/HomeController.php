@@ -15,9 +15,49 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showLogin()
 	{
-		return View::make('hello');
+		return View::make('login');
 	}
 
-}
+	public function doLogin()
+	{
+		$email = Input::get('email');
+		$password = Input::get('password');
+
+		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+		{
+			Session::flash('infoMessage', 'You have succesfully logged in.');
+    		return Redirect::intended(action('PostsController@index'));
+		}
+		else
+		{
+    		Session::flash('errorMessage', 'Email or password not found.');
+    		return Redirect::action('HomeController@showLogin');
+		}
+	}
+
+	public function logout()
+	{
+		Auth::logout();
+
+		Session::flash('infoMessage', 'You have logged out.');
+		return Redirect::action('PostsController@index');
+	}
+
+
+
+	public function showWelcome()
+	{
+		return Redirect::action('HomeController@sayHello', ['Codeup']);
+	}
+
+	public function sayHello($name)
+	{
+	    $data = array(
+	    	'name' => $name
+	    );
+
+	      return View::make('temp.my-first-view')->with($data);
+	    }
+	}
