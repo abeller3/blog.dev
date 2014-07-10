@@ -11,6 +11,16 @@
 |
 */
 
+App::error(function(Exception $exception, $code)
+{
+	Log::error($exception);
+});
+
+App::missing(function($exception)
+{
+	return Response::View('errors.missing', array(), 404);
+});
+
 ClassLoader::addDirectories(array(
 
 	app_path().'/commands',
@@ -46,9 +56,9 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-App::error(function(Exception $exception, $code)
+App::missing(function($exception)
 {
-	Log::error($exception);
+    return Response::view('errors.missing', array(), 404);
 });
 
 /*
