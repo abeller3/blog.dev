@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href='/css/blog.css'>	
 </head>
 <body>
-	@include('Posts.navbar')
+	@include('posts.navbar')
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-info">{{{ Session::get('successMessage') }}}</div>
 	@endif
