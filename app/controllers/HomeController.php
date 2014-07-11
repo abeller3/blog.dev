@@ -44,20 +44,3 @@ class HomeController extends BaseController {
 		Session::flash('infoMessage', 'You have logged out.');
 		return Redirect::action('PostsController@index');
 	}
-
-
-
-	public function showWelcome()
-	{
-		return Redirect::action('HomeController@sayHello', ['Codeup']);
-	}
-
-	public function sayHello($name)
-	{
-	    $data = array(
-	    	'name' => $name
-	    );
-
-	      return View::make('temp.my-first-view')->with($data);
-	    }
-	}
