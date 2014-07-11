@@ -16,6 +16,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
+	      	<li><a href="{{ action('PostsController@index') }}">Home</a></li>
 	        <li><a href="{{ action('HomeController@showLogin') }}">Log In</a></li>
 	        <li><a href="{{ action('PostsController@create') }}">Create Post</a></li>
 	      </ul>

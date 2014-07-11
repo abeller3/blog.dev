@@ -1,6 +1,7 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends BaseController 
+{
 
 	/*
 	|--------------------------------------------------------------------------
@@ -44,3 +45,4 @@ class HomeController extends BaseController {
 		Session::flash('infoMessage', 'You have logged out.');
 		return Redirect::action('PostsController@index');
 	}
+}

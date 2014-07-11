@@ -8,22 +8,28 @@
         {{ Form::open(array('action'=>'PostsController@store', 'files' => true)) }}
     @endif
         
-        <div>
+<div class="container col-md-4">
+
+        <div class="form-group">
             {{ Form::label('title', 'Title') }}
             {{ Form::text('title') }}
             {{ $errors->first('title', '<span class="help-block">:message</span><br>') }}
         </div>
-        <div>
-            {{ Form::label('image', 'Image') }}
+        <div class="form-group">
+            {{ Form::label('image', 'Image', array('class' => 'awesome')) }}
             {{ Form::file('image') }}
             {{ $errors->first('image', '<span class="help-block">:message</span><br>') }} 
-        <div>
+        </div>
+        <div class="form-group">
             {{ Form::label('body', 'Body') }}
             {{ Form::textarea('body') }}
             {{ $errors->first('body', '<span class="help-block">:message</span><br>') }}
         </div>
+        <div>
             {{ Form::submit('Save Post') }}
             {{ Form::close() }}
+        </div>
 
+    </div> <!-- end main container -->
 @stop
 
